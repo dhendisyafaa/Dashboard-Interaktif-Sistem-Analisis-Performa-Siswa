@@ -11,7 +11,7 @@ Script ini melakukan:
 Dataset: Mahasiswa Indonesia (500 records)
 Target: IPK (1.5-4.0)
 
-Author: [Your Name]
+Author: Kelompok 18 | Dhendi - Bhismart
 Date: December 2025
 """
 

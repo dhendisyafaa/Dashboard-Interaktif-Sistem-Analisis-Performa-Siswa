@@ -6,11 +6,11 @@ Dashboard Streamlit untuk visualisasi dan prediksi IPK mahasiswa
 dengan machine learning.
 
 Pages:
-- 📊 Overview & Statistik
-- 🎯 Prediksi IPK  
-- 🔍 Eksplorasi Data
+- Overview & Statistik
+- Prediksi IPK  
+- Eksplorasi Data
 
-Author: [Your Name]
+Author: Kelompok 18 | Dhendi - Bhismart
 Date: December 2025
 """
 
@@ -26,7 +26,6 @@ import plotly.graph_objects as go
 # ============================================================================
 st.set_page_config(
     page_title="Analisis IPK Mahasiswa",
-    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -110,16 +109,16 @@ feature_importance = load_feature_importance()
 # ============================================================================
 # SIDEBAR
 # ============================================================================
-st.sidebar.markdown("# 📊 Analisis IPK Mahasiswa")
+st.sidebar.markdown("# Analisis IPK Mahasiswa")
 st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
     "Navigasi",
-    ["📊 Overview", "🎯 Prediksi IPK", "🔍 Eksplorasi Data"]
+    ["Overview", "Prediksi IPK", "Eksplorasi Data"]
 )
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### 📈 Info Dataset")
+st.sidebar.markdown("### Info Dataset")
 st.sidebar.metric("Total Mahasiswa", len(df))
 st.sidebar.metric("IPK Rata-rata", f"{df['IPK'].mean():.2f}")
 st.sidebar.metric("Fitur", 7)
@@ -127,18 +126,18 @@ st.sidebar.metric("Fitur", 7)
 # ============================================================================
 # PAGE 1: OVERVIEW & STATISTIK
 # ============================================================================
-if page == "📊 Overview":
-    st.markdown('<p class="main-header">📊 Overview & Statistik IPK Mahasiswa</p>', unsafe_allow_html=True)
+if page == "Overview":
+    st.markdown('<p class="main-header">Overview & Statistik IPK Mahasiswa</p>', unsafe_allow_html=True)
     
     st.markdown("""
     <div class="info-box">
-    <strong>🎓 Sistem Analisis Indeks Prestasi Kumulatif (IPK)</strong><br>
+    <strong>Sistem Analisis Indeks Prestasi Kumulatif (IPK)</strong><br>
     Dashboard interaktif untuk analisis, visualisasi, dan prediksi IPK mahasiswa menggunakan Machine Learning.
     </div>
     """, unsafe_allow_html=True)
     
     # Key Metrics
-    st.markdown("### 📊 Statistik Utama")
+    st.markdown("### Statistik Utama")
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -156,7 +155,7 @@ if page == "📊 Overview":
         st.metric("IPK Tertinggi", f"{df['IPK'].max():.2f}")
     
     # IPK Distribution
-    st.markdown("### 📈 Distribusi IPK")
+    st.markdown("### Distribusi IPK")
     
     col1, col2 = st.columns(2)
     
@@ -197,7 +196,7 @@ if page == "📊 Overview":
     
     # Feature Importance
     if feature_importance is not None:
-        st.markdown("### 🔥 Fitur Paling Berpengaruh")
+        st.markdown("### Fitur Paling Berpengaruh")
         
         fig = px.bar(
             feature_importance,
@@ -213,7 +212,7 @@ if page == "📊 Overview":
         st.plotly_chart(fig, use_container_width=True)
     
     # Statistik per Fitur
-    st.markdown("### 📊 Statistik Fitur Akademik")
+    st.markdown("### Statistik Fitur Akademik")
     
     col1, col2 = st.columns(2)
     
@@ -228,16 +227,16 @@ if page == "📊 Overview":
 # ============================================================================
 # PAGE 2: PREDIKSI IPK
 # ============================================================================
-elif page == "🎯 Prediksi IPK":
-    st.markdown('<p class="main-header">🎯 Prediksi IPK Mahasiswa</p>', unsafe_allow_html=True)
+elif page == "Prediksi IPK":
+    st.markdown('<p class="main-header">Prediksi IPK Mahasiswa</p>', unsafe_allow_html=True)
     
     if models is None:
-        st.error("⚠️ Model belum di-load. Jalankan 'python analisis_data.py' terlebih dahulu!")
+        st.error("Model belum di-load. Jalankan 'python analisis_data.py' terlebih dahulu!")
         st.stop()
     
     st.markdown("""
     <div class="info-box">
-    <strong>📝 Masukkan Data Mahasiswa</strong><br>
+    <strong>Masukkan Data Mahasiswa</strong><br>
     Isi form di bawah untuk memprediksi IPK dan kategori performa mahasiswa.
     </div>
     """, unsafe_allow_html=True)
@@ -247,22 +246,22 @@ elif page == "🎯 Prediksi IPK":
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.markdown("**👤 Data Pribadi**")
+            st.markdown("**Data Pribadi**")
             jenis_kelamin = st.selectbox("Jenis Kelamin", ['Laki-laki', 'Perempuan'])
             umur = st.slider("Umur", 18, 25, 21)
             status_menikah = st.selectbox("Status Pernikahan", ['Belum Menikah', 'Menikah'])
         
         with col2:
-            st.markdown("**📚 Kehadiran & Partisipasi**")
+            st.markdown("**Kehadiran & Partisipasi**")
             kehadiran = st.slider("Kehadiran (%)", 40, 100, 70)
             partisipasi = st.slider("Partisipasi Diskusi (skor)", 40, 100, 70)
         
         with col3:
-            st.markdown("**📝 Tugas & E-Learning**")
+            st.markdown("**Tugas & E-Learning**")
             nilai_tugas = st.slider("Nilai Tugas (rata-rata)", 40, 100, 70)
             aktivitas = st.slider("Aktivitas E-Learning (skor)", 40, 100, 70)
         
-        submit = st.form_submit_button("🔮 Prediksi IPK", use_container_width=True)
+        submit = st.form_submit_button("Prediksi IPK", use_container_width=True)
     
     if submit:
         # Prepare input
@@ -296,7 +295,7 @@ elif page == "🎯 Prediksi IPK":
         
         # Display results
         st.markdown("---")
-        st.markdown("### 🎉 Hasil Prediksi")
+        st.markdown("### Hasil Prediksi")
         
         col1, col2, col3 = st.columns(3)
         
@@ -304,7 +303,7 @@ elif page == "🎯 Prediksi IPK":
             st.markdown(f"""
             <div class="metric-card">
                 <h3 style="color: #1f77b4; margin: 0;">IPK Prediksi</h3>
-                <h1 style="margin: 0.5rem 0; font-size: 3rem;">{predicted_ipk:.2f}</h1>
+                <h1 style="margin: 0.5rem 0; font-size: 3rem; color: #000">{predicted_ipk:.2f}</h1>
                 <p style="margin: 0; color: #666;">Skala 1.5 - 4.0</p>
             </div>
             """, unsafe_allow_html=True)
@@ -331,18 +330,18 @@ elif page == "🎯 Prediksi IPK":
             st.markdown(f"""
             <div class="metric-card">
                 <h3 style="color: #ff9800; margin: 0;">Confidence</h3>
-                <h1 style="margin: 0.5rem 0; font-size: 3rem;">{confidence:.0f}%</h1>
+                <h1 style="margin: 0.5rem 0; font-size: 3rem; color: #000">{confidence:.0f}%</h1>
                 <p style="margin: 0; color: #666;">Tingkat Keyakinan</p>
             </div>
             """, unsafe_allow_html=True)
         
         # Recommendations
-        st.markdown("### 💡 Rekomendasi")
+        st.markdown("### Rekomendasi")
         
         if predicted_ipk >= 3.5:
             st.markdown("""
             <div class="info-box">
-            <strong>✅ Performa Excellent - Cum Laude</strong><br>
+            <strong>Performa Excellent - Cum Laude</strong><br>
             • Pertahankan konsistensi belajar<br>
             • Pertimbangkan untuk jadi tutor sebaya<br>
             • Fokus pada pengembangan soft skills
@@ -351,7 +350,7 @@ elif page == "🎯 Prediksi IPK":
         elif predicted_ipk >= 3.0:
             st.markdown("""
             <div class="info-box">
-            <strong>📚 Performa Good - Sangat Memuaskan</strong><br>
+            <strong>Performa Good - Sangat Memuaskan</strong><br>
             • Tingkatkan partisipasi di kelas<br>
             • Manfaatkan konsultasi dosen<br>
             • Target IPK 3.5+ untuk Cum Laude
@@ -360,7 +359,7 @@ elif page == "🎯 Prediksi IPK":
         elif predicted_ipk >= 2.5:
             st.markdown("""
             <div class="warning-box">
-            <strong>⚠️ Performa Average - Perlu Peningkatan</strong><br>
+            <strong>Performa Average - Perlu Peningkatan</strong><br>
             • Tingkatkan kehadiran dan partisipasi<br>
             • Ikuti program bimbingan akademik<br>
             • Atur jadwal belajar yang lebih terstruktur
@@ -369,7 +368,7 @@ elif page == "🎯 Prediksi IPK":
         else:
             st.markdown("""
             <div class="warning-box">
-            <strong>❗ Performa Poor - Perlu Intervensi</strong><br>
+            <strong>Performa Poor - Perlu Intervensi</strong><br>
             • Segera konsultasi dengan pembimbing akademik<br>
             • Evaluasi metode belajar<br>
             • Pertimbangkan mengikuti remedial
@@ -379,10 +378,10 @@ elif page == "🎯 Prediksi IPK":
 # ============================================================================
 # PAGE 3: EKSPLORASI DATA
 # ============================================================================
-elif page == "🔍 Eksplorasi Data":
-    st.markdown('<p class="main-header">🔍 Eksplorasi Data Mahasiswa</p>', unsafe_allow_html=True)
+elif page == "Eksplorasi Data":
+    st.markdown('<p class="main-header">Eksplorasi Data Mahasiswa</p>', unsafe_allow_html=True)
     
-    st.markdown("### 🎛️ Filter Data")
+    st.markdown("### Filter Data")
     
     col1, col2 = st.columns(2)
     
@@ -399,13 +398,13 @@ elif page == "🔍 Eksplorasi Data":
         (df['Status_Menikah'].isin(status_filter))
     ]
     
-    st.info(f"📊 Menampilkan {len(filtered_df)} mahasiswa (dari {len(df)} total)")
+    st.info(f"Menampilkan {len(filtered_df)} mahasiswa (dari {len(df)} total)")
     
     # Analysis tabs
-    tab1, tab2, tab3 = st.tabs(["📈 Kehadiran & Partisipasi", "📝 Tugas & E-Learning", "👥 Demografi"])
+    tab1, tab2, tab3 = st.tabs(["Kehadiran & Partisipasi", "Tugas & E-Learning", "Demografi"])
     
     with tab1:
-        st.markdown("### 📚 Kehadiran vs IPK")
+        st.markdown("### Kehadiran vs IPK")
         
         fig = px.scatter(
             filtered_df,
@@ -418,7 +417,7 @@ elif page == "🔍 Eksplorasi Data":
         )
         st.plotly_chart(fig, use_container_width=True)
         
-        st.markdown("### 💬 Partisipasi Diskusi vs IPK")
+        st.markdown("### Partisipasi Diskusi vs IPK")
         
         fig = px.scatter(
             filtered_df,
@@ -432,7 +431,7 @@ elif page == "🔍 Eksplorasi Data":
         st.plotly_chart(fig, use_container_width=True)
     
     with tab2:
-        st.markdown("### 📝 Nilai Tugas vs IPK")
+        st.markdown("### Nilai Tugas vs IPK")
         
         fig = px.scatter(
             filtered_df,
@@ -445,7 +444,7 @@ elif page == "🔍 Eksplorasi Data":
         )
         st.plotly_chart(fig, use_container_width=True)
         
-        st.markdown("### 💻 Aktivitas E-Learning vs IPK")
+        st.markdown("###Aktivitas E-Learning vs IPK")
         
         fig = px.scatter(
             filtered_df,
@@ -459,7 +458,7 @@ elif page == "🔍 Eksplorasi Data":
         st.plotly_chart(fig, use_container_width=True)
     
     with tab3:
-        st.markdown("### 👥 IPK Berdasarkan Jenis Kelamin")
+        st.markdown("###IPK Berdasarkan Jenis Kelamin")
         
         gender_ipk = filtered_df.groupby('Jenis_Kelamin')['IPK'].mean().reset_index()
         
@@ -474,7 +473,7 @@ elif page == "🔍 Eksplorasi Data":
         )
         st.plotly_chart(fig, use_container_width=True)
         
-        st.markdown("### 💍 IPK Berdasarkan Status Pernikahan")
+        st.markdown("### IPK Berdasarkan Status Pernikahan")
         
         status_ipk = filtered_df.groupby('Status_Menikah')['IPK'].mean().reset_index()
         
