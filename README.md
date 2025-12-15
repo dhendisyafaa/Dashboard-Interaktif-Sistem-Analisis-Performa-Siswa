@@ -70,7 +70,7 @@ Dashboard akan berjalan di `http://localhost:8501`
 
 ## Live Demo
 
-**[Dashboard Student Performance Analysis](https://dashboard-interaktif-sistem-analisis-performa-siswa.streamlit.app/)**
+**[Dashboard Student Performance Analysis](https://academic-performance-dashboard.streamlit.app/)**
 
 ## Tech Stack
 
