@@ -82,6 +82,8 @@ def load_models():
             models['regression'] = pickle.load(f)
         with open('models/classification_model.pkl', 'rb') as f:
             models['classification'] = pickle.load(f)
+        with open('models/scaler.pkl', 'rb') as f:
+            models['scaler'] = pickle.load(f)
         with open('models/label_encoders.pkl', 'rb') as f:
             models['label_encoders'] = pickle.load(f)
         with open('models/performance_encoder.pkl', 'rb') as f:
@@ -90,7 +92,7 @@ def load_models():
             models['feature_columns'] = pickle.load(f)
         return models
     except FileNotFoundError:
-        st.error("⚠️ Model tidak ditemukan! Jalankan 'python analisis_data.py' terlebih dahulu.")
+        st.error("Model tidak ditemukan! Jalankan 'python analisis_data.py' terlebih dahulu.")
         return None
 
 @st.cache_data
@@ -253,13 +255,13 @@ elif page == "Prediksi IPK":
         
         with col2:
             st.markdown("**Kehadiran & Partisipasi**")
-            kehadiran = st.slider("Kehadiran (%)", 40, 100, 70)
-            partisipasi = st.slider("Partisipasi Diskusi (skor)", 40, 100, 70)
+            kehadiran = st.slider("Kehadiran (%)", 0, 100, 70)
+            partisipasi = st.slider("Partisipasi Diskusi (skor)", 0, 100, 70)
         
         with col3:
             st.markdown("**Tugas & E-Learning**")
-            nilai_tugas = st.slider("Nilai Tugas (rata-rata)", 40, 100, 70)
-            aktivitas = st.slider("Aktivitas E-Learning (skor)", 40, 100, 70)
+            nilai_tugas = st.slider("Nilai Tugas (rata-rata)", 0, 100, 70)
+            aktivitas = st.slider("Aktivitas E-Learning (skor)", 0, 100, 70)
         
         submit = st.form_submit_button("Prediksi IPK", use_container_width=True)
     
@@ -275,17 +277,17 @@ elif page == "Prediksi IPK":
             'Aktivitas_ELearning': aktivitas
         }])
         
-        # Encode
+        # Encode categorical variables
         label_encoders = models['label_encoders']
         for col in ['Jenis_Kelamin', 'Status_Menikah']:
             if col in label_encoders:
                 input_data[col] = label_encoders[col].transform(input_data[col])
         
-        # Ensure column order
+        # Ensure column order matches training
         feature_columns = models['feature_columns']
         input_data = input_data[feature_columns]
         
-        # Predict
+        # Predict directly (models were trained on raw features, NOT scaled)
         predicted_ipk = models['regression'].predict(input_data)[0]
         predicted_class = models['classification'].predict(input_data)[0]
         predicted_proba = models['classification'].predict_proba(input_data)[0]

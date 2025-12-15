@@ -1,4 +1,4 @@
-"""
+﻿"""
 Analisis Data dan Model Training - Dataset Mahasiswa Indonesia
 ================================================================
 
@@ -46,7 +46,7 @@ print("="*80)
 print("\n[1] LOADING DATA...")
 df = pd.read_csv('mahasiswa.csv')
 
-print(f"\n✓ Dataset berhasil dimuat!")
+print(f"\nâœ“ Dataset berhasil dimuat!")
 print(f"  - Total mahasiswa: {len(df)}")
 print(f"  - Total kolom: {len(df.columns)}")
 print(f"\nKolom yang tersedia:")
@@ -69,7 +69,7 @@ print(df.describe())
 print("\n--- Missing Values ---")
 missing = df.isnull().sum()
 if missing.sum() == 0:
-    print("✓ Tidak ada missing values!")
+    print("âœ“ Tidak ada missing values!")
 else:
     print(missing[missing > 0])
 
@@ -107,7 +107,7 @@ for col in categorical_cols:
         df_processed[col] = le.fit_transform(df_processed[col])
         label_encoders[col] = le
 
-print(f"    ✓ Encoded {len(label_encoders)} categorical columns")
+print(f"    âœ“ Encoded {len(label_encoders)} categorical columns")
 
 # Buat kategori performa berdasarkan IPK
 print("  - Creating performance categories...")
@@ -125,7 +125,7 @@ df_processed['performance_category'] = df['IPK'].apply(categorize_ipk)
 performance_le = LabelEncoder()
 df_processed['performance_encoded'] = performance_le.fit_transform(df_processed['performance_category'])
 
-print(f"    ✓ Performance categories distribution:")
+print(f"    âœ“ Performance categories distribution:")
 print(df_processed['performance_category'].value_counts())
 
 # ============================================================================
@@ -186,7 +186,7 @@ mae = mean_absolute_error(y_reg_test, y_reg_pred)
 r2 = r2_score(y_reg_test, y_reg_pred)
 
 print("\n--- Regression Model Performance ---") 
-print(f"  R² Score: {r2:.4f}")
+print(f"  RÂ² Score: {r2:.4f}")
 print(f"  RMSE: {rmse:.4f}")
 print(f"  MAE: {mae:.4f}")
 print(f"  MSE: {mse:.4f}")
@@ -289,11 +289,11 @@ for filename, model in models_to_save.items():
     filepath = f'models/{filename}'
     with open(filepath, 'wb') as f:
         pickle.dump(model, f)
-    print(f"  ✓ Saved: {filepath}")
+    print(f"  âœ“ Saved: {filepath}")
 
 # Save feature importance
 feature_importance.to_csv('models/feature_importance.csv', index=False)
-print("  ✓ Saved: models/feature_importance.csv")
+print("  âœ“ Saved: models/feature_importance.csv")
 
 # ============================================================================
 # 9. SUMMARY
@@ -301,21 +301,22 @@ print("  ✓ Saved: models/feature_importance.csv")
 print("\n" + "="*80)
 print("SUMMARY - MODEL TRAINING COMPLETED")
 print("="*80)
-print(f"\n✓ Dataset: {len(df)} mahasiswa, {len(df.columns)} features")
-print(f"\n✓ Regression Model (IPK Prediction):")
-print(f"  - R² Score: {r2:.4f}")
+print(f"\nâœ“ Dataset: {len(df)} mahasiswa, {len(df.columns)} features")
+print(f"\nâœ“ Regression Model (IPK Prediction):")
+print(f"  - RÂ² Score: {r2:.4f}")
 print(f"  - RMSE: {rmse:.4f}")
 print(f"  - MAE: {mae:.4f}")
 
-print(f"\n✓ Classification Model (Performance Category):")
+print(f"\nâœ“ Classification Model (Performance Category):")
 print(f"  - Accuracy: {accuracy:.4f} ({accuracy*100:.2f}%)")
 print(f"  - Categories: {', '.join(performance_le.classes_)}")
 
-print(f"\n✓ Clustering Model (Student Segmentation):")
+print(f"\nâœ“ Clustering Model (Student Segmentation):")
 print(f"  - K Clusters: {n_clusters}")
 print(f"  - Silhouette Score: {silhouette:.4f}")
 
-print(f"\n✓ All models saved to 'models/' folder")
+print(f"\nâœ“ All models saved to 'models/' folder")
 print("\n" + "="*80)
 print("NEXT STEP: Run 'streamlit run dashboard_student.py' to launch dashboard")
 print("="*80)
+
