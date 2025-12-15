@@ -147,17 +147,21 @@ uas_andat/
 ## Model Performance
 
 **Random Forest Regression:**
-- R² Score: ~0.82
-- MAE: ~0.18
-- RMSE: ~0.25
+- R² Score: 0.80 (model dapat menjelaskan 80% variansi IPK)
+- MAE: 0.08 (kesalahan rata-rata ±0.08 poin IPK)
+- RMSE: 0.10
 
 **Random Forest Classification:**
-- Accuracy: ~84%
-- F1-Score: 0.76 - 0.91 (per kategori)
+- Accuracy: 70%
+- F1-Score per kategori:
+  - Good: 0.79 (sangat baik)
+  - Excellent: 0.57 (cukup baik)
+  - Average: 0.00 (tidak terdeteksi - ketidakseimbangan data)
 
 **K-Means Clustering:**
-- Optimal Clusters: 3
-- Segmentasi: High Performer (20%), Aktif Seimbang (36%), Perlu Perhatian (44%)
+- Jumlah Clusters: 4
+- Silhouette Score: 0.16 (overlap tinggi antar cluster)
+- Avg IPK per cluster: 3.31 - 3.41 (perbedaan kecil)
 
 ## Contributing
 
