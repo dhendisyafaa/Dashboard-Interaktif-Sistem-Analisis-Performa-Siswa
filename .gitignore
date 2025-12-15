@@ -27,6 +27,5 @@ ENV/
 Thumbs.db
 
 # Project specific
-*.pkl
-models/*.pkl
-!models/.gitkeep
+# Allow models to be pushed for deployment
+models/.gitkeep
