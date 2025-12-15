@@ -1,16 +1,16 @@
-# 📊 Dashboard Interaktif Sistem Analisis Performa Mahasiswa
+# Dashboard Interaktif Sistem Analisis Performa Mahasiswa
 
 Dashboard interaktif berbasis web untuk analisis dan prediksi performa akademik mahasiswa menggunakan Machine Learning dan visualisasi data.
 
-## ✨ Features
+## Features
 
-✅ **Prediksi IPK Individual** - Prediksi IPK mahasiswa berdasarkan aktivitas akademik  
-✅ **Klasifikasi Prestasi** - Klasifikasi otomatis ke kategori: Sangat Baik, Baik, Cukup, Kurang  
-✅ **Clustering Mahasiswa** - Segmentasi mahasiswa berdasarkan pola aktivitas  
-✅ **Visualisasi Interaktif** - Charts dan graphs untuk analisis data  
-✅ **Dashboard Real-time** - Interface user-friendly tanpa coding
+**Prediksi IPK Individual** - Prediksi IPK mahasiswa berdasarkan aktivitas akademik  
+**Klasifikasi Prestasi** - Klasifikasi otomatis ke kategori: Sangat Baik, Baik, Cukup, Kurang  
+**Clustering Mahasiswa** - Segmentasi mahasiswa berdasarkan pola aktivitas  
+**Visualisasi Interaktif** - Charts dan graphs untuk analisis data  
+**Dashboard Real-time** - Interface user-friendly tanpa coding
 
-## 🎯 Tujuan
+## Tujuan
 
 Dashboard ini dikembangkan untuk membantu institusi pendidikan dalam:
 - Memprediksi performa akademik mahasiswa sejak dini
@@ -18,7 +18,7 @@ Dashboard ini dikembangkan untuk membantu institusi pendidikan dalam:
 - Melakukan segmentasi mahasiswa untuk targeted intervention
 - Memvisualisasikan pola dan tren performa akademik
 
-## 🧠 Machine Learning Models
+## Machine Learning Models
 
 ### 1. Random Forest Regression
 - **Fungsi:** Prediksi nilai IPK (1.5 - 4.0)
@@ -35,7 +35,7 @@ Dashboard ini dikembangkan untuk membantu institusi pendidikan dalam:
 - **Metode:** Elbow Method untuk penentuan cluster optimal
 - **Output:** Profil karakteristik setiap cluster
 
-## 📋 Dataset
+## Dataset
 
 Dataset berisi 500 data mahasiswa dengan fitur:
 
@@ -47,7 +47,7 @@ Dataset berisi 500 data mahasiswa dengan fitur:
 | Aktivitas E-Learning | Tingkat aktivitas dalam LMS | 0-100 | % |
 | IPK | Indeks Prestasi Kumulatif | 1.5-4.0 | Scale |
 
-## 🚀 Installation
+## Installation
 
 ### Local Development
 
@@ -68,11 +68,11 @@ streamlit run dashboard_student.py
 
 Dashboard akan berjalan di `http://localhost:8501`
 
-## 🌐 Live Demo
+## Live Demo
 
-🔗 **[Dashboard Student Performance Analysis](https://dashboard-interaktif-sistem-analisis-performa-siswa.streamlit.app/)**
+**[Dashboard Student Performance Analysis](https://dashboard-interaktif-sistem-analisis-performa-siswa.streamlit.app/)**
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework:** Streamlit
 - **Machine Learning:** Scikit-learn (Random Forest, K-Means)
@@ -80,7 +80,7 @@ Dashboard akan berjalan di `http://localhost:8501`
 - **Visualization:** Plotly, Matplotlib, Seaborn
 - **Deployment:** Streamlit Cloud
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 uas_andat/
@@ -97,27 +97,27 @@ uas_andat/
     └── config.toml
 ```
 
-## 📊 Dashboard Pages
+## Dashboard Pages
 
-### 1. 🎯 Prediksi IPK
+### 1. Prediksi IPK
 - Input form untuk 4 fitur akademik
 - Prediksi IPK real-time
 - Kategori prestasi mahasiswa
 - Visualisasi hasil prediksi
 
-### 2. 👥 Analisis Clustering
+### 2. Analisis Clustering
 - Interactive clustering dengan pilihan jumlah cluster
 - Scatter plot visualisasi 2D (PCA)
 - Tabel profil karakteristik setiap cluster
 - Statistik per cluster
 
-### 3. 📈 Visualisasi & Insights
+### 3. Visualisasi & Insights
 - Distribusi IPK (histogram, boxplot)
 - Correlation heatmap antar fitur
 - Feature importance analysis
 - Statistical summary
 
-## 🎓 Use Cases
+## Use Cases
 
 **Untuk Dosen/Pembimbing Akademik:**
 - Monitoring performa mahasiswa bimbingan
@@ -134,17 +134,17 @@ uas_andat/
 - Data untuk policy making
 - Evaluasi efektivitas program akademik
 
-## 📝 How to Use
+## How to Use
 
 1. **Akses Dashboard** melalui link atau run locally
 2. **Pilih Page** dari sidebar:
-   - "🎯 Prediksi IPK" untuk prediksi individual
-   - "👥 Analisis Clustering" untuk segmentasi
-   - "📈 Visualisasi & Insights" untuk analisis data
+   - "Prediksi IPK" untuk prediksi individual
+   - "Analisis Clustering" untuk segmentasi
+   - "Visualisasi & Insights" untuk analisis data
 3. **Input Data** atau explore visualisasi yang tersedia
 4. **Interpretasi Hasil** untuk decision making
 
-## 🔬 Model Performance
+## Model Performance
 
 **Random Forest Regression:**
 - R² Score: ~0.82
@@ -159,27 +159,27 @@ uas_andat/
 - Optimal Clusters: 3
 - Segmentasi: High Performer (20%), Aktif Seimbang (36%), Perlu Perhatian (44%)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👥 Authors
+## Authors
 
 **Dhendi Syafa A.P**
 - GitHub: [@dhendisyafaa](https://github.com/dhendisyafaa)
 - Email: dhendisyafa@upi.edu
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Dataset: Data Mahasiswa (Simulasi/Institusi)
 - Framework: Streamlit Team
 - Libraries: Scikit-learn, Pandas, Plotly
 
-## 📞 Contact
+## Contact
 
 For questions or collaboration:
 - GitHub Issues: [Create an issue](https://github.com/dhendisyafaa/Dashboard-Interaktif-Sistem-Analisis-Performa-Siswa/issues)
@@ -187,4 +187,4 @@ For questions or collaboration:
 
 ---
 
-⭐ Jika project ini bermanfaat, jangan lupa kasih star!
+Jika project ini bermanfaat, jangan lupa kasih star!
